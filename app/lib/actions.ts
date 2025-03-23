@@ -18,7 +18,7 @@ const FormSchema = z.object({
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
 const UpdateInovice = FormSchema.omit({ id: true, date: true });
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'required' })
+const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' })
 
 export async function createInvoice (formData: FormData) {
     const { customerId, amount, status } = CreateInvoice.parse({
